@@ -23,3 +23,12 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     // failing the test
     return false
   })
+
+  // pass anything here you'd normally pass to cy.server().
+Cypress.Server.defaults({
+  delay: 500,
+  force404: false,
+  ignore: (xhr) => {
+    // handle custom logic for filtering XHR requests
+  },
+})

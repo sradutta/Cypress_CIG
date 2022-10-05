@@ -6,7 +6,7 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
 
   e2e: {
-    baseUrl: 'http://localhost:1234',
+    baseUrl: 'https://www.careersingear.com/',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
     excludeSpecPattern: ['**/1-getting-started/*', '**/2-advanced-examples/*', '**/examples/*'],
     supportFile: 'cypress/support/e2e.{js,jsx,ts,tsx}',
