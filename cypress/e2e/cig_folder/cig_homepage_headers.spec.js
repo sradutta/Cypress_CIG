@@ -1,5 +1,13 @@
 ///<reference types = "cypress"/>
 
+/* This tests that all the header links
+from the CIG homepage. Thus, it clicks the cig logo, 
+state, company and haul-type and navigates to the 
+individual page. And, that each of those 
+individual pages have all the required properties, 
+and elements. 
+*/
+
 describe('Testing the header links on homepage', () =>{
 
     beforeEach(() => {

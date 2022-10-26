@@ -10,6 +10,12 @@ module.exports = defineConfig({
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
     excludeSpecPattern: ['**/1-getting-started/*', '**/2-advanced-examples/*', '**/examples/*'],
     supportFile: 'cypress/support/e2e.{js,jsx,ts,tsx}',
-    watchForFileChanges: false
+    watchForFileChanges: false,
+    numTestsKeptInMemory: 1, 
+    defaultCommandTimeout: 10000,
+    pageLoadTimeout: 60000
+
   }
+
+  
 })

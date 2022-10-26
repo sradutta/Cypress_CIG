@@ -13,9 +13,9 @@ describe('Testing the three companies from homepage', () => {
         cy.contains('[class="row company-page-job-listings no-margin"]', 'Apply Now').its('length').should('be.gt', 0) //redundant
     })
 
-    it('Testing 2nd company Averitt', () => {
-        cy.get('[href="/averitt-express"]').invoke('removeAttr', 'target').click()
-        cy.get('.company-name').should('contain', 'Averitt Express')
+    it('Testing 2nd company Penske', () => {
+        cy.get('[href="/penske/jobs"]').invoke('removeAttr', 'target').click()
+        cy.get('.company-name').should('contain', 'Penske')
         cy.get('.company-page-job-listings').should ('contain', 'Apply Now')
     })
 

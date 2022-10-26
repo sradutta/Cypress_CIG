@@ -1,5 +1,9 @@
 /// <reference types = "cypress" />
 
+/* This tests all the footer links from CIG home page. 
+It clicks on each of the footer link, navigates to the
+respective page and checks the properties on the page. 
+*/
 
 describe('Testing all the footer links on homepage', () => {
 
