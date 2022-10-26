@@ -8,9 +8,26 @@ describe('Testing the job listings of Averitt', () =>{
     })
 
     it('Testing that the first 10 jobs have JD pages', () => {
+
         const numOfJobs = 10
+        const hrefData = new Array()
+        var firstPart = 'https://www.careersingear.com'
+        var link
+        for (let j=0; j< numOfJobs; j++){
+            //var href = cy.contains('Apply Now').eq(j).invoke('attr', 'href')
+            link = cy.get('[class="apply"]').invoke('attr', 'href')
+        //    cy.get('[class="apply"]').invoke('attr', 'href').then(href => {
+        //     link = href
+        //    })
+            console.log("BBBBB: " + link)
+            hrefData.push(firstPart+link);
+        }
+        console.log("AAAAAAAAAAA: " + hrefData)
+        console.log("CCCCCCCC: " + link)
+
         for(let i = 0; i < numOfJobs; i++){
-            cy.get('[class="main-link"]').eq(i).click()
+            //cy.get('[class="main-link"]').eq(i).click()
+            cy.visit(hrefData[i])
             cy.get('[class="company-name"]').should('contain', 'Averitt Express')
             cy.get('[class="col l2 m3 s12 company-logo"]').should('exist')
             cy.get('#applicationHeader').should('exist')
@@ -27,12 +44,17 @@ describe('Testing the job listings of Averitt', () =>{
             cy.get('[value="tanker"]').click({force:true, multiple:true})
             cy.get('[aria-label="Number of moving violations in the last 3 years?"]').select('0')
             cy.get('[aria-label="Number of preventable accidents in the last 3 years?"]').select('0')
-            cy.get('[aria-label="First Name"]').type('Test1')
+            cy.get('[aria-label="First Name"]').then((firstName) => {
+                if (cy.get('[aria-label="First Name"][value=""]')){
+                    cy.get('[aria-label="First Name"]').type('Test1')
+                }
+            })  
             cy.get('[aria-label="Last Name"]').type('Test2')
             cy.get('[aria-label="Zip Code"]').type('30301')
             cy.get('[placeholder="eg. somebody@somewhere.com"]').type('test@test.com')
             cy.get('[aria-label="Phone Number"]').type('8564712830')
             cy.contains('I AGREE, SUBMIT').click({force:true})
+            cy.wait(5000)
             cy.url().should('equal', 'https://www.careersingear.com/prequalified')
             cy.go('back')
             cy.go('back')
